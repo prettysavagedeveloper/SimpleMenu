@@ -1,8 +1,9 @@
 package com.prettysavagedeveloper;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -57,5 +58,14 @@ public class OrderTest{
     public void Given_NegativeValue_When_DisplaySelectedMenu_Then_DisplayErrorSentence(){
         order.displaySelectedMenu(-5);
         assertEquals("Your request is unavailable. Please choose your menu\n", outContent.toString().replace("\r\n", "\n"));
+    }
+
+    @Test
+    public void Given_BeefRendangInStandardInput_When_MenuIsRun_Then_DisplayCorrectProcess(){
+        System.setIn(new ByteArrayInputStream(("1\n".getBytes())));
+        order.runMenu();
+        String output = outContent.toString().replace("\r\n","\n");
+        assertEquals(output.endsWith("You have chosen Menu Beef Rendang\n"), true);
+        assertEquals(output.length() > "You have chosen Menu Beef Rendang\n".length(), true );
     }
 }
