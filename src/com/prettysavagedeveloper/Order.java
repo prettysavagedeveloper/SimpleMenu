@@ -39,4 +39,53 @@ public class Order {
         int nb = sc.nextInt();
         this.displaySelectedMenu(nb);
     }
+
+    public void displaySelectedKuih(int nbKuih, boolean allKuihAvailable) {
+        if(allKuihAvailable){
+            switch (nbKuih){
+                case 1:
+                    System.out.println("You have chosen karipap");
+                    break;
+                case 2:
+                    System.out.println("You have chosen pisang goreng");
+                    break;
+                case 3:
+                    System.out.println("You have chosen donut");
+                    break;
+                default:
+                    System.out.println("Unavailable");
+                    break;
+            }
+        }
+        else {
+            switch (nbKuih){
+                case 1:
+                    System.out.println("You have chosen donut");
+                    break;
+                case 2:
+                    System.out.println("No donut");
+                    break;
+                default:
+                    System.out.println("Unavailable");
+                    break;
+            }
+        }
+    }
+
+   public void displaySelectedDrinks(int nbDrink) {
+        switch (nbDrink){
+            case 1:
+                System.out.println("You have chosen teh tarik");
+                break;
+            case 2:
+                System.out.println("You have chosen milo ais");
+                break;
+            case 3:
+                System.out.println("You have chosen soya cincau");
+                break;
+            default:
+                System.out.println("choice unavailable");
+                break;
+        }
+    }
 }
